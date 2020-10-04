@@ -7,6 +7,10 @@
 	box-sizing: border-box;
 }
 
+/* TODO: Rember that there is something called CSS Reset
+ * https://meyerweb.com/eric/tools/css/reset/
+*/
+
 .burger-container:first-child {
 	font-family: "DM Serif Display", serif;
 	font-weight: 400;

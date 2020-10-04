@@ -1,23 +1,9 @@
-let hamburger = document.querySelectorAll(".swapper");
-
-for (let i = 0; i < hamburger.length; i++) {
-	hamburger[i].addEventListener("click", () => {
-		let toggable = document.getElementById("myTopnav");
-		if (toggable.className === "topnav") {
-			toggable.className += " responsive";
-		} else {
-			toggable.className = "topnav";
-		}
-	});
-}
-
+let hamburgerIcons = document.querySelectorAll(".swapper");
+let toggable = document.getElementById("myTopnav");
 let svgIndex = 1;
-showSvg(svgIndex);
 
-function plusIndex(n) {
-	showSvg((svgIndex += n));
-}
-function showSvg(n) {
+
+const showSvg = (n) => {
 	let svg = document.getElementsByClassName("swapper");
 	if (n > svg.length) {
 		svgIndex = 1;
@@ -31,3 +17,17 @@ function showSvg(n) {
 
 	svg[svgIndex - 1].style.display = "";
 }
+
+const plusIndex = (n) => {
+	showSvg((svgIndex += n));
+}
+
+for (const icon of hamburgerIcons) {
+	icon.addEventListener('click', () => {
+		(toggable.className === "topnav") ?
+			toggable.className += " responsive" :
+			toggable.className = "topnav";
+	});
+}
+
+showSvg(svgIndex);
